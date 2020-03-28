@@ -10,7 +10,8 @@ int get_HCF(int, int);
 int get_LCM(int, int);
 float find_simple_interest(int, int, double);
 double find_compound_interest(int, int, double);
-float convert_fahrenheit_to_celsius(float fahrenheit);
+float convert_fahrenheit_to_celsius(float);
+float convert_celsius_to_fahrenheit(float);
 int find_greatest(int, int);
 int find_greatest_of_three(int, int, int);
 int find_average(int, int, int);
@@ -63,6 +64,10 @@ float convert_fahrenheit_to_celsius(float fahrenheit) {
   return ((fahrenheit - 32) / 180) * 100;
 }
 
+float convert_celsius_to_fahrenheit(float celsius) {
+  return ((celsius * 180) / 100) + 32;
+}
+
 int find_greatest(int num1, int num2) {
   return num1 > num2 ? num1 : num2;
 }
@@ -94,6 +99,7 @@ int main(void) {
   printf("\nEnter temperature\n");
   scanf("%f", &temperature);
   printf("The corresponding centigrade of %ff is %f\n", temperature, convert_fahrenheit_to_celsius(temperature));
+  printf("The corresponding fahrenheit of %fc is %f\n", temperature, convert_celsius_to_fahrenheit(temperature));
 
   printf("\nEnter principle amount, years, rate of interest to find Interest\n");
   scanf("%d%d%lf", &p, &n, &r);
