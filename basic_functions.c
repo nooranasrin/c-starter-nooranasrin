@@ -10,6 +10,7 @@ int get_HCF(int, int);
 int get_LCM(int, int);
 float find_simple_interest(int, int, double);
 double find_compound_interest(int, int, double);
+float convert_fahrenheit_to_celsius(float fahrenheit);
 int find_greatest(int, int);
 int find_greatest_of_three(int, int, int);
 int find_average(int, int, int);
@@ -58,6 +59,10 @@ double find_compound_interest(int p, int n, double r) {
   return p * (pow(1 + (r / 100), n)) - p;
 }
 
+float convert_fahrenheit_to_celsius(float fahrenheit) {
+  return ((fahrenheit - 32) / 180) * 100;
+}
+
 int find_greatest(int num1, int num2) {
   return num1 > num2 ? num1 : num2;
 }
@@ -73,6 +78,7 @@ int find_average(int num1, int num2, int num3) {
 int main(void) {
   int num1, num2, num3, p, n;
   double r;
+  float temperature;
   printf("Enter 3 number\n");
   scanf("%d%d%d", &num1, &num2, &num3);
 
@@ -84,6 +90,10 @@ int main(void) {
   printf("The average of %d, %d and %d : %d\n", num1, num2, num3, find_average(num1, num2, num3));
   printf("The HCF of %d and %d is %d\n", num1, num2, get_HCF(num1, num2));
   printf("The LCM of %d and %d is %d\n", num1, num2, get_LCM(num1, num2));
+
+  printf("\nEnter temperature\n");
+  scanf("%f", &temperature);
+  printf("The corresponding centigrade of %ff is %f\n", temperature, convert_fahrenheit_to_celsius(temperature));
 
   printf("\nEnter principle amount, years, rate of interest to find Interest\n");
   scanf("%d%d%lf", &p, &n, &r);
