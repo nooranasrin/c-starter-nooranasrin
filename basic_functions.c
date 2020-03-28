@@ -7,6 +7,7 @@ int get_square(int);
 int get_cube(int);
 int is_factor(int, int, int);
 int get_HCF(int, int);
+int get_LCM(int, int);
 float find_simple_interest(int, int, double);
 double find_compound_interest(int, int, double);
 int find_greatest(int, int);
@@ -45,6 +46,10 @@ int get_HCF(int num1, int num2) {
   return HCF;
 }
 
+int get_LCM(int num1, int num2) {
+  return (num1 * num2) / get_HCF(num1, num2);
+}
+
 float find_simple_interest(int p, int n, double r) {
   return (p * n * r) / 100;
 }
@@ -78,6 +83,7 @@ int main(void) {
   printf("The largest of %d, %d and %d is %d\n", num1, num2, num3, find_greatest_of_three(num1, num2, num3));
   printf("The average of %d, %d and %d : %d\n", num1, num2, num3, find_average(num1, num2, num3));
   printf("The HCF of %d and %d is %d\n", num1, num2, get_HCF(num1, num2));
+  printf("The LCM of %d and %d is %d\n", num1, num2, get_LCM(num1, num2));
 
   printf("\nEnter principle amount, years, rate of interest to find Interest\n");
   scanf("%d%d%lf", &p, &n, &r);
