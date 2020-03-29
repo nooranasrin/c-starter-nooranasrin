@@ -9,6 +9,7 @@ long int add_numbers_till_N(int, int);
 long int multiply_numbers_till_N(int, int);
 long int add_even_till_N(int, int);
 void print_odd_backward(int, int);
+void print_Nth_number(int, int, int);
 
 unsigned long int find_factorial(int term) {
   long factorial = 1, number;
@@ -88,7 +89,13 @@ void print_odd_backward(int start, int end) {
   int excess = end % skip;
   int first_odd = end - excess - 1;
 
-  for(current = first_odd; current >= start; current -= skip){
+  for(current = first_odd; current >= start; current -= skip) {
+    printf("%d\n", current);
+  }
+}
+
+void print_Nth_number(int start, int end, int number) {
+  for(int current = start + number; current <= end; current += number) {
     printf("%d\n", current);
   }
 }
@@ -120,6 +127,10 @@ int main(void) {
 
   printf("\nThe odd numbers from %d to %d are :\n", num1, num2);
   print_odd(num1, num2);
+
+  printf("\nThe %dth numbers from 1 to %d are :\n", num1, num2);
+  print_Nth_number(1, num2, num1);
+
 
   printf("\nEnter the number for multiplication table and the limit\n");
   scanf("%d%d", &m, &n);
