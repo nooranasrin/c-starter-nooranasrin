@@ -3,13 +3,13 @@
 
 int is_even(int);
 int is_odd(int);
-int get_square(int);
+unsigned int get_square(int);
 int get_cube(int);
 int is_factor(int, int, int);
 int get_HCF(int, int);
-int get_LCM(int, int);
-float find_simple_interest(int, int, double);
-double find_compound_interest(int, int, double);
+float get_LCM(float, int);
+float find_simple_interest(int, int, float);
+float find_compound_interest(int, int, float);
 float convert_fahrenheit_to_celsius(float);
 float convert_celsius_to_fahrenheit(float);
 int find_greatest(int, int);
@@ -24,7 +24,7 @@ int is_odd(int number) {
   return !is_even(number);
 }
 
-int get_square(int number) {
+unsigned int get_square(int number) {
   return number * number;
 }
 
@@ -48,15 +48,15 @@ int get_HCF(int num1, int num2) {
   return HCF;
 }
 
-int get_LCM(int num1, int num2) {
+float get_LCM(float num1, int num2) {
   return (num1 * num2) / get_HCF(num1, num2);
 }
 
-float find_simple_interest(int p, int n, double r) {
+float find_simple_interest(int p, int n, float r) {
   return (p * n * r) / 100;
 }
 
-double find_compound_interest(int p, int n, double r) {
+float find_compound_interest(int p, int n, float r) {
   return p * (pow(1 + (r / 100), n)) - p;
 }
 
@@ -82,19 +82,19 @@ int find_average(int num1, int num2, int num3) {
 
 int main(void) {
   int num1, num2, num3, p, n;
-  double r;
+  float r;
   float temperature;
   printf("Enter 3 number\n");
   scanf("%d%d%d", &num1, &num2, &num3);
 
   printf("%d is %s\n", num1, is_even(num1) ? "even" : "odd");
-  printf("%d is %s\n", num1, is_odd(num1) ? "odd" : "even");
-  printf("The square of %d is %d\n", num1, get_square(num1));
+  printf("%d is %s\n", num2, is_odd(num2) ? "odd" : "even");
+  printf("The square of %d is %u\n", num1, get_square(num1));
   printf("The cube of %d is %d\n", num1, get_cube(num1));
   printf("The largest of %d, %d and %d is %d\n", num1, num2, num3, find_greatest_of_three(num1, num2, num3));
   printf("The average of %d, %d and %d : %d\n", num1, num2, num3, find_average(num1, num2, num3));
   printf("The HCF of %d and %d is %d\n", num1, num2, get_HCF(num1, num2));
-  printf("The LCM of %d and %d is %d\n", num1, num2, get_LCM(num1, num2));
+  printf("The LCM of %d and %d is %f\n", num1, num2, get_LCM(num1, num2));
 
   printf("\nEnter temperature\n");
   scanf("%f", &temperature);
@@ -102,7 +102,7 @@ int main(void) {
   printf("The corresponding fahrenheit of %fc is %f\n", temperature, convert_celsius_to_fahrenheit(temperature));
 
   printf("\nEnter principle amount, years, rate of interest to find Interest\n");
-  scanf("%d%d%lf", &p, &n, &r);
+  scanf("%d%d%f", &p, &n, &r);
   printf("The simple interest is %f\n", find_simple_interest(p, n, r));
   printf("The compound interest is %f\n", find_compound_interest(p, n, r));
 
