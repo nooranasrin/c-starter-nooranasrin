@@ -71,24 +71,27 @@ long int multiply_numbers_till_N(int start, int end) {
 }
 
 int main(void) {
-  int number, m, n;
-  printf("Enter a number\n");
-  scanf("%d", &number);
+  int num1, num2, m, n;
+  printf("Enter two number\n");
+  scanf("%d%d", &num1, &num2);
 
-  printf("\nThe factorial of %d : %lu\n", number, find_factorial(number));
+  printf("\nThe factorial of %d : %lu\n", num1, find_factorial(num1));
 
-  printf("\nThe fibonacci series till %d are :\n", number);
-  print_fibonacci(number);
+  printf("\nThe fibonacci series till %d are :\n", num1);
+  print_fibonacci(num1);
 
-  printf("\nThe odd numbers from 1 to %d are :\n", number);
-  print_odd(1, number);
+  printf("\nThe odd numbers from 1 to %d are :\n", num1);
+  print_odd(1, num1);
 
-  printf("\nThe even numbers from 1 to %d are :\n", number);
-  print_even(1, number);
+  printf("\nThe even numbers from 1 to %d are :\n", num1);
+  print_even(1, num1);
 
-  printf("\nThe sum of numbers from 1 to %d : %ld\n", number, add_numbers_till_N(1, number));
-  
-  printf("\nThe product of numbers from 1 to %d : %ld\n", number, multiply_numbers_till_N(1, number));
+  printf("\nThe sum of numbers from 1 to %d : %ld\n", num1, add_numbers_till_N(1, num1));
+
+  printf("\nThe product of numbers from 1 to %d : %ld\n", num1, multiply_numbers_till_N(1, num1));
+
+  printf("\nThe odd numbers from %d to %d are :\n", num1, num2);
+  print_odd(num1, num2);
 
   printf("\nEnter the number for multiplication table and the limit\n");
   scanf("%d%d", &m, &n);
