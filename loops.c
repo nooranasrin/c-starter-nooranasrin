@@ -7,6 +7,7 @@ void print_even(int, int);
 void print_multiplication_table(int, int);
 long int add_numbers_till_N(int, int);
 long int multiply_numbers_till_N(int, int);
+long int add_even_till_N(int, int);
 
 unsigned long int find_factorial(int term) {
   long factorial = 1, number;
@@ -70,6 +71,17 @@ long int multiply_numbers_till_N(int start, int end) {
   return product;
 }
 
+long int add_even_till_N(int start, int end) {
+  int skip = 2, current, sum = 0;
+  int excess = start % skip;
+  int first_even = start + excess;
+
+  for(current = first_even; current <= end; current += skip){
+    sum += current;
+  }
+  return sum;
+}
+
 int main(void) {
   int num1, num2, m, n;
   printf("Enter two number\n");
@@ -89,6 +101,8 @@ int main(void) {
   printf("\nThe sum of numbers from 1 to %d : %ld\n", num1, add_numbers_till_N(1, num1));
 
   printf("\nThe product of numbers from 1 to %d : %ld\n", num1, multiply_numbers_till_N(1, num1));
+
+  printf("\nThe sum of event numbers from %d to %d is : %ld\n", num1, num2, add_even_till_N(num1, num2));
 
   printf("\nThe odd numbers from %d to %d are :\n", num1, num2);
   print_odd(num1, num2);
