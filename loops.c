@@ -3,16 +3,7 @@
 unsigned long int find_factorial(int);
 void print_fibonacci(int);
 void print_odd(int, int);
-
-void print_odd(int start, int end) {
-  int skip = 2, current;
-  int excess = start % skip;
-  int firstOdd = start - excess + 1;
-
-  for(current = firstOdd; current <= end; current += skip){
-    printf("%d\n", current);
-  }
-}
+void print_even(int, int);
 
 unsigned long int find_factorial(int term) {
   long factorial = 1, number;
@@ -32,6 +23,26 @@ void print_fibonacci(int limit) {
   }
 }
 
+void print_odd(int start, int end) {
+  int skip = 2, current;
+  int excess = start % skip;
+  int first_odd = start - excess + 1;
+
+  for(current = first_odd; current <= end; current += skip){
+    printf("%d\n", current);
+  }
+}
+
+void print_even(int start, int end) {
+  int skip = 2, current;
+  int excess = start % skip;
+  int first_even = start + excess;
+
+  for(current = first_even; current <= end; current += skip){
+    printf("%d\n", current);
+  }
+}
+
 int main(void) {
   int number;
   printf("Enter a number\n");
@@ -42,5 +53,7 @@ int main(void) {
   print_fibonacci(number);
   printf("\nThe odd numbers from 1 to %d are :\n", number);
   print_odd(1, number);
+  printf("\nThe even numbers from 1 to %d are :\n", number);
+  print_even(1, number);
   return 0;
 }
