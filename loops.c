@@ -5,7 +5,8 @@ void print_fibonacci(int);
 void print_odd(int, int);
 void print_even(int, int);
 void print_multiplication_table(int, int);
-int add_numbers_till_N(int, int);
+long int add_numbers_till_N(int, int);
+long int multiply_numbers_till_N(int, int);
 
 unsigned long int find_factorial(int term) {
   long factorial = 1, number;
@@ -53,12 +54,20 @@ void print_multiplication_table(int m, int n) {
   }
 }
 
-int add_numbers_till_N(int start, int end) {
-  int sum = 0, current;
+long int add_numbers_till_N(int start, int end) {
+  long int sum = 0, current;
   for (current = start; current <= end; current++) {
     sum += current;
   }
   return sum;
+}
+
+long int multiply_numbers_till_N(int start, int end) {
+  long int product = 1, current;
+  for (current = start; current <= end; current++) {
+    product *= current;
+  }
+  return product;
 }
 
 int main(void) {
@@ -77,7 +86,9 @@ int main(void) {
   printf("\nThe even numbers from 1 to %d are :\n", number);
   print_even(1, number);
 
-  printf("\nThe sum of numbers from 1 to %d : %d\n", number, add_numbers_till_N(1, number));
+  printf("\nThe sum of numbers from 1 to %d : %ld\n", number, add_numbers_till_N(1, number));
+  
+  printf("\nThe product of numbers from 1 to %d : %ld\n", number, multiply_numbers_till_N(1, number));
 
   printf("\nEnter the number for multiplication table and the limit\n");
   scanf("%d%d", &m, &n);
