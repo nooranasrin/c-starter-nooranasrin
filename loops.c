@@ -4,6 +4,7 @@ unsigned long int find_factorial(int);
 void print_fibonacci(int);
 void print_odd(int, int);
 void print_even(int, int);
+void print_multiplication_table(int, int);
 
 unsigned long int find_factorial(int term) {
   long factorial = 1, number;
@@ -43,17 +44,33 @@ void print_even(int start, int end) {
   }
 }
 
+void print_multiplication_table(int m, int n) {
+  int mul_number, product = 1;
+  for (mul_number = 1; mul_number <= n; mul_number++) {
+    product = m * mul_number;
+    printf("%d * %d = %d\n", m, mul_number, product);
+  }
+}
+
 int main(void) {
-  int number;
+  int number, m, n;
   printf("Enter a number\n");
   scanf("%d", &number);
 
   printf("\nThe factorial of %d : %lu\n", number, find_factorial(number));
+
   printf("\nThe fibonacci series till %d are :\n", number);
   print_fibonacci(number);
+
   printf("\nThe odd numbers from 1 to %d are :\n", number);
   print_odd(1, number);
+
   printf("\nThe even numbers from 1 to %d are :\n", number);
   print_even(1, number);
+
+  printf("\nEnter the number for multiplication table and the limit\n");
+  scanf("%d%d", &m, &n);
+  printf("The multiplication table of %d till %d :\n", m, n);
+  print_multiplication_table(m, n);
   return 0;
 }
