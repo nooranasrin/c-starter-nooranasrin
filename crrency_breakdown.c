@@ -1,24 +1,26 @@
 #include<stdio.h>
 
-int breakdown_into_currency(int, int);
+void breakdown_into_currency(int, int*, int*, int);
 
-int breakdown_into_currency(int amount, int currency) {
-  int noOfCurrency = amount / currency;
-  printf("%d x Rs %d\n", noOfCurrency, currency);
-  return amount - (noOfCurrency * currency);
+void breakdown_into_currency(int amount, int *currencies, int *counts, int length) {
+  for (int index = 0; index < length; index ++) {
+    int noOfCurrency = amount / currencies[index];
+    counts[index] = noOfCurrency; 
+    amount -= (noOfCurrency * currencies[index]);
+  }
 }
 
 int main(void) {
-  int amount;
+  int amount, counts[8];
+  int currencies[8] = {2000, 500, 200, 100, 50, 10, 5, 1};
+
   printf("Enter the amount\n");
   scanf("%d", &amount);
-  amount = breakdown_into_currency(amount, 2000);
-  amount = breakdown_into_currency(amount, 500);
-  amount = breakdown_into_currency(amount, 200);
-  amount = breakdown_into_currency(amount, 100);
-  amount = breakdown_into_currency(amount, 50);
-  amount = breakdown_into_currency(amount, 10);
-  amount = breakdown_into_currency(amount, 5);
-  breakdown_into_currency(amount, 1);
+  breakdown_into_currency(amount, currencies, counts, 8);
+
+  for (int index = 0; index < 8; index++) {
+    printf("%d x Rs %d\n", counts[index], currencies[index]);
+  }
+
   return 0;
 }
